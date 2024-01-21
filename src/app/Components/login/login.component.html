@@ -1,0 +1,63 @@
+<div class="bg-[#FAFAFA] px-10 py-14">
+  <div class="bg-white w-full max-w-[400px] border border-gray-300 m-auto px-6 py-12">
+    <h1 class="text-xl text-center mb-7 text-gray-600">
+      Sign In to Job Seek
+    </h1>
+  <form [formGroup]="form">
+    <div class="mb-7">
+      <label htmlFor="email" class="text-sm">
+        Email
+      </label>
+      <div class="relative">
+        <input
+        type="email"
+        id="email"
+        name="email"
+        formControlName="email"
+        placeholder="me@example.com"
+        class="w-full outline-none border border-gray-300 px-2 py-3 text-sm rounded-md mt-3"
+        />
+        <div class="absolute top-1/2 right-3 transform -translate-y-1/2">
+          <fa-icon class="text-gray-400" [icon]="faEnvelope"></fa-icon>
+        </div>
+      </div>
+    </div>
+    <div>
+      <label htmlFor="password" class="text-sm">
+        Password
+      </label>
+
+    <div class="relative flex items-center border border-gray-300 mt-3 rounded-md px-2 py-3">
+      <input
+      type="password"
+      id="password"
+      name="password"
+      formControlName="password"
+      class="w-full outline-none text-sm"
+      />
+    </div>
+    <a class="text-blue-500 text-xs mt-2 float-right outline-none" routerLink="/">
+      Forget password?
+    </a>
+    <div class="clear-both"></div>
+  </div>
+  <div class="flex justify-center">
+    <button
+    type="button"
+    class="bg-[#0078D7] hover:bg-[#005BA1] cursor-pointer outline-none
+    transition-colors w-40 text-white py-2 mt-6 flex items-center justify-center"
+    (click)="login()"
+
+    >
+    <fa-icon class="mr-2" [icon]="faSignInAlt"></fa-icon>
+    Sign In
+  </button>
+
+  </div>
+  </form>
+  <p class="text-sm text-gray-500 text-center mt-8">
+    Don't have a Job Seek account yet?
+    <a class="text-blue-500 outline-none" routerLink="/Signup">Sign Up</a>
+  </p>
+ </div>
+</div>

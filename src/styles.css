@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+#fb-login > span {
+  width: 52px !important;
+  height: 52px !important;
+}
+
+#my-signin2 > div {
+  width: 100%;
+  border: 1px solid #eee;
+}
+
+.abcRioButtonBlue {
+  border-radius: 50% !important;
+  background: rgb(243 244 246) !important;
+  height: 52px !important;
+  width: auto !important;
+}
+
+.abcRioButtonIcon {
+  background: rgb(243 244 246) !important;
+}
+
+.abcRioButtonContents {
+  width: 0;
+  display: none;
+}
+
+.Toastify__toast-container {
+  z-index: 99999;
+}
+
+ul {
+  list-style: disc;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}
+
+input#createdDate, input#dob {
+  display: inline-block;
+  position: relative;
+}
+
+.file-input-label {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #e2e8f0;
+  color: #4a5568;
+  border: 1px solid #cbd5e0;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+.modal-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  background-color: #f2f2f2;
+  border-bottom: 1px solid #ddd;
+  z-index: 1;
+}
+
+.modal-box {
+  margin-top: 4rem; /* Adjust the margin-top value to create space below the fixed header */
+}
+
+.close-icon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+}
+}

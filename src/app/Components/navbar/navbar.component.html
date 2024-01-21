@@ -1,0 +1,88 @@
+<div class="flex items-center justify-between gap-10 lg:px-16 pl-4 pr-7 z-[999] py-3 bg-white sticky top-0 shadow-sm" >
+  <div routerLink="/" class="flex items-center cursor-pointer">
+    <img src="assets/images/logo.png" width="110" height="110" alt="Search 4 Smart"/>
+    <h1 class="text-xl font-bold"></h1>
+  </div>
+  <div class="lg:hidden block">
+    <fa-icon class="text-xl cursor-pointer" [icon]="faHamburger"></fa-icon>
+  </div>
+
+  <div class="lg:static fixed top-0 '-right-[3000px]'
+  transition-all bottom-0 lg:shadow-none shadow-xl lg:w-auto w-[200px]
+   lg:p-0 p-7 bg-white lg:flex lg:flex-1">
+   <div class="clear-both"></div>
+   <div class="flex-1 lg:flex-row flex-col flex lg:items-center items-start text-sm lg:gap-7 gap-4">
+
+    <a routerLink="/">
+      <fa-icon class="mr-2 inline-block" [icon]="faHome"></fa-icon>
+      <span class="inline-block">Home </span>
+    </a>
+
+
+    <a  routerLink="/jobs">
+      <fa-icon class="mr-2 inline-block" [icon]="faBriefcase"></fa-icon>
+      <span class="inline-block">Find Jobs</span>
+    </a>
+@if (user?.role === 'organization'||
+user?.role === 'admin'
+) {
+  <a routerLink="/candidates">
+    <fa-icon class="mr-2 inline-block" [icon]="fauser"></fa-icon>
+    <span class="inline-block">Find Candidates </span>
+  </a>
+}
+
+   </div>
+   <div class="text-sm flex lg:flex-row flex-col lg:items-center items-start lg:gap-8 gap-4 mt-10 lg:mt-0">
+@if (user === "Default") {
+
+    <a routerLink="/Login">
+      <fa-icon class="mr-2 inline-block" [icon]="faSignInAlt"></fa-icon>
+      <span class="inline-block">Login</span></a>
+    <a class="px-6 py-2 border-2 rounded-full border-[#0078D7] text-[#0078D7]" routerLink="/Signup">
+      <span class="inline-block">Register Now</span></a>
+    }@else {
+     @if (user?.role === 'jobseeker' ){
+      <a routerLink="/edit_profile">
+        <fa-icon class="mr-2 inline-block" [icon]="faUserCircle"></fa-icon>
+        <span class="inline-block">Edit Profile</span>
+      </a>
+      <a routerLink="/received_invitation">
+        <fa-icon class="mr-2 inline-block" [icon]="faEnvelope"></fa-icon>
+        <span class="inline-block">Invitation </span>
+      </a>
+      <a routerLink="/job_applied">
+        <fa-icon class="mr-2 inline-block" [icon]="faBriefcase"></fa-icon>
+        <span class="inline-block">job Applied </span>
+      </a>
+    }@else if(user?.role === 'organization' ){
+        <a routerLink="/organization/jobs">
+          <fa-icon class="mr-2 inline-block" [icon]="faBriefcase"></fa-icon>
+          <span class="inline-block">Jobs Posted </span>
+        </a>
+        <a routerLink="/sent_invitation">
+          <fa-icon class="mr-2 inline-block" [icon]="faEnvelopeOpen"></fa-icon>
+          <span class="inline-block">Sent Invitation </span>
+        </a>
+    }@else{
+        <a routerLink="/organization_approval" class="navbar-link">
+          <fa-icon class="mr-2 inline-block" [icon]="faUserCircle"></fa-icon>
+          <span class="inline-block">Dashboard </span>
+        </a>
+      }
+      <div>
+        <p class="navbar-link">
+          <fa-icon class="mr-2 inline-block" [icon]="faSignOutAlt"></fa-icon>
+          <span class="inline-block">Logout</span>
+        </p>
+      </div>
+      <div >
+        <p>Hi, {{user?.name}}</p>
+      </div>
+    }
+
+
+  </div>
+  </div>
+</div>
+
