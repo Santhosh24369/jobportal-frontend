@@ -12,8 +12,10 @@ export class JobsService {
   currentmessage = this.jobsmessagesource.asObservable();
   constructor(private http: HttpClient) { }
   jobs(){
-    this.http.get('http://localhost:5263/GetJobs').subscribe((data:any)=> {
+    this.http.get('https://localhost:7159/JoinJobs').subscribe((data:any)=> {
     this.jobsdata = data;
+    console.log(this.jobsdata);
+
     this.jobsmessagesource.next(this.jobsdata);
   });
   }

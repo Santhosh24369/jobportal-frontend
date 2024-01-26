@@ -1,14 +1,15 @@
 <div  class="grid gap-8 xl:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
 <ng-container *ngFor="let job of jobs ;let i = index" >
 
-<div class="bg-white rounded-md border border-gray-200 p-5 cursor-pointer">
+<div routerLink="/jobs/{{job?.id}}" class="bg-white rounded-md border border-gray-200 p-5 cursor-pointer">
+
   <div class="flex items-center gap-3 mb-7">
     <div class="w-16 h-16 rounded-full border border-gray-300 shrink-0">
-      <img src="https://softblobsfileupload.s3.eu-west-1.amazonaws.com/companylogos/e1e46a08-ca45-4963-bd97-341ba92bd1e7.jpg" alt="Logo" class="w-full h-full rounded-full object-cover">
+      <img src={{job?.organizationdata?.users.avatar}} class='w-full h-full rounded-full object-cover'>
     </div>
     <div>
-    <p class="text-[#504ED7] text-lg">{{job['position']}}</p>
-    <p class="mt-1 text-xs">{{jobs?.organization?.user.name}}</p>
+    <p class="text-[#504ED7] text-lg">{{job.position}}</p>
+    <p class="mt-1 text-xs">{{job?.organizationdata?.users.name}}</p>
 
   </div>
   </div>
@@ -20,9 +21,9 @@
       {{(job['employmentType']=== 'fullTime')?'Full Time':(job['employmentType']==='partTime')?'part Time' : (job['employmentType']==='freelance')?'freelance':'contractual'}}
     </p>
   </div>
-  <p class="mt-4 font-medium">province</p>
+  <p class="mt-4 font-medium">{{job?.organizationdata?.users.province}}</p>
   <div>
-    <p class="mt-2 text-gray-500 text-xs">{{job['createdAt']}}</p>
+    <p class="mt-2 text-gray-500 text-xs">{{ job.createdAt | amTimeAgo}}</p>
   </div>
 </div>
 

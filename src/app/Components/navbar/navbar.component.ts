@@ -22,6 +22,7 @@ user : any='' ;
 
 constructor(private authServices: AuthService){
   this.authServices.currentmessage.subscribe((use)=>{
+
     this.user = use;
   })
 }

@@ -13,7 +13,7 @@ export class AuthService {
   constructor(private http: HttpClient,private router: Router) {}
 
   Login(verifyuser:any){
-    this.http.post("http://localhost:5263/login",verifyuser).subscribe
+    this.http.post("https://localhost:7159/login",verifyuser).subscribe
    ((res:any)=>{
      this.userdata = res;
      if(this.userdata){
